@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Grid, Card, CardContent, Typography, Box, Avatar } from '@mui/material';
+import { Grid, Card, CardContent, Typography, Box, Avatar } from '@mui/material';
+import { motion } from 'framer-motion';
 
 const teamMembers = [
   {
@@ -31,22 +32,22 @@ const teamMembers = [
 
 const Team = () => {
   return (
-    <Box sx={{ py: 12 }}>
-      <Container maxWidth="lg">
-        <Typography variant="h4" component="h2" align="center" gutterBottom sx={{ fontWeight: 'bold', mb: 10 }}>
-          Meet the Team
-        </Typography>
-        <Grid container spacing={4} justifyContent="center">
-          {teamMembers.map((member) => (
-            <Grid item xs={12} sm={6} md={2.4} key={member.name}>
+    <Grid container spacing={4} justifyContent="center">
+      {teamMembers.map((member, index) => (
+        <Grid item xs={12} sm={6} md={2.4} key={member.name}>
+            <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                style={{ height: '100%' }}
+            >
               <Card sx={{
                 textAlign: 'center',
                 p: 3,
-                backgroundColor: 'rgba(255, 255, 255, 0.6)',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(0, 0, 0, 0.05)',
                 borderRadius: '16px',
                 height: '100%',
+                bgcolor: 'background.default'
               }}>
                 <Avatar sx={{ width: 80, height: 80, margin: '0 auto 16px', bgcolor: 'secondary.main', fontSize: '2rem', color: 'white' }}>
                   {member.avatar}
@@ -60,11 +61,10 @@ const Team = () => {
                   </Typography>
                 </CardContent>
               </Card>
-            </Grid>
-          ))}
+          </motion.div>
         </Grid>
-      </Container>
-    </Box>
+      ))}
+    </Grid>
   );
 };
 

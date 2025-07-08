@@ -1,6 +1,7 @@
 import React from 'react';
-import { Container, Grid, Card, CardContent, Typography, Box, Avatar } from '@mui/material';
+import { Grid, Typography, Box, Avatar } from '@mui/material';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
+import { motion } from 'framer-motion';
 
 const testimonials = [
   {
@@ -25,48 +26,36 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <Box sx={{ py: 12, backgroundColor: 'background.default' }}>
-      <Container maxWidth="lg">
-        <Typography variant="h4" component="h2" align="center" gutterBottom sx={{ fontWeight: 'bold', mb: 10 }}>
-          What Our Users Say
-        </Typography>
-        <Grid container spacing={4}>
-          {testimonials.map((item) => (
-            <Grid item xs={12} md={4} key={item.name}>
-                <Card sx={{
-                    p: 4,
-                    backgroundColor: 'rgba(255, 255, 255, 0.6)',
-                    backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(0, 0, 0, 0.05)',
-                    borderRadius: '16px',
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between'
-                }}>
-                    <Box>
-                        <FormatQuoteIcon sx={{ fontSize: 40, color: 'primary.main', mb: 2 }} />
-                        <Typography variant="body1" sx={{ fontStyle: 'italic', mb: 3 }}>
-                            {item.quote}
-                        </Typography>
-                    </Box>
-                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+    <Grid container spacing={8}>
+      {testimonials.map((item, index) => (
+        <Grid item xs={12} md={4} key={item.name}>
+            <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+            >
+                <Box sx={{ height: '100%' }}>
+                    <FormatQuoteIcon sx={{ fontSize: 60, color: 'primary.main', mb: 2, opacity: 0.2 }} />
+                    <Typography variant="h6" sx={{ fontStyle: 'italic', mb: 3 }}>
+                        {item.quote}
+                    </Typography>
+                    <Box sx={{ display: 'flex', alignItems: 'center', mt: 4 }}>
                         <Avatar sx={{ bgcolor: 'primary.main', mr: 2, color: 'white' }}>{item.avatar}</Avatar>
                         <Box>
-                            <Typography variant="h6" component="p" sx={{ fontWeight: 'bold' }}>
+                            <Typography variant="body1" component="p" sx={{ fontWeight: 'bold' }}>
                                 {item.name}
                             </Typography>
-                            <Typography color="text.secondary">
+                            <Typography color="text.secondary" variant="body2">
                                 {item.role}
                             </Typography>
                         </Box>
                     </Box>
-                </Card>
-            </Grid>
-          ))}
+                </Box>
+            </motion.div>
         </Grid>
-      </Container>
-    </Box>
+      ))}
+    </Grid>
   );
 };
 

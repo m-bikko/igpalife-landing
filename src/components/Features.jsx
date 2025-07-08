@@ -1,64 +1,72 @@
 import React from 'react';
-import { Container, Grid, Card, CardContent, Typography, Box } from '@mui/material';
-import SchoolIcon from '@mui/icons-material/School';
-import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
-import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import { Grid, Typography, Box } from '@mui/material';
+import { motion } from 'framer-motion';
 
 const features = [
   {
     title: 'Student',
     description: 'Browse and enroll in events, manage your activities, and connect with clubs.',
-    icon: <SchoolIcon fontSize="large" color="primary" />,
+    icon: (
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+            <path d="M6.5 2H20v15H6.5A2.5 2.5 0 0 1 4 14.5v-10A2.5 2.5 0 0 1 6.5 2z" />
+        </svg>
+    ),
   },
   {
     title: 'Head of Club',
     description: 'Create and manage events for your club, reserve rooms, and engage with members.',
-    icon: <SupervisorAccountIcon fontSize="large" color="primary" />,
+    icon: (
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+            <path d="m9 16 2 2 4-4" />
+        </svg>
+    ),
   },
   {
     title: 'Admin',
     description: 'Approve event and room reservation requests, manage clubs, and oversee platform activity.',
-    icon: <AdminPanelSettingsIcon fontSize="large" color="primary" />,
+    icon: (
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            <path d="m9 12 2 2 4-4" />
+        </svg>
+    ),
   },
 ];
 
 const Features = () => {
   return (
     <Box sx={{ py: 12 }}>
-      <Container maxWidth="lg">
-        <Typography variant="h4" component="h2" align="center" gutterBottom sx={{ fontWeight: 'bold', mb: 10 }}>
-          A Platform for Everyone
-        </Typography>
-        <Grid container spacing={4}>
-          {features.map((feature) => (
-            <Grid item xs={12} md={4} key={feature.title}>
-              <Card sx={{
-                textAlign: 'center',
+      <Grid container spacing={4}>
+        {features.map((feature, index) => (
+          <Grid item xs={12} md={4} key={feature.title}>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+            >
+              <Box sx={{
                 p: 4,
-                backgroundColor: 'rgba(255, 255, 255, 0.6)',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(0, 0, 0, 0.05)',
-                borderRadius: '16px',
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                '&:hover': {
-                  transform: 'translateY(-10px)',
-                  boxShadow: (theme) => `0 20px 30px ${theme.palette.primary.main}33`,
-                }
+                borderRadius: '24px',
+                height: '100%',
+                bgcolor: index === 0 ? 'primary.light' : index === 1 ? 'secondary.light' : 'success.light',
               }}>
                 <Box sx={{ mb: 2, color: 'primary.main' }}>{feature.icon}</Box>
-                <CardContent>
-                  <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold' }}>
+                <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold' }}>
                     {feature.title}
-                  </Typography>
-                  <Typography color="text.secondary">
+                </Typography>
+                <Typography color="text.secondary">
                     {feature.description}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
+                </Typography>
+              </Box>
+            </motion.div>
+          </Grid>
+        ))}
+      </Grid>
     </Box>
   );
 };
