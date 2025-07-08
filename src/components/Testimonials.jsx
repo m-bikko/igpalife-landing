@@ -25,7 +25,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <Box sx={{ py: 12, backgroundColor: 'background.paper' }}>
+    <Box sx={{ py: 12, backgroundColor: 'background.default' }}>
       <Container maxWidth="lg">
         <Typography variant="h4" component="h2" align="center" gutterBottom sx={{ fontWeight: 'bold', mb: 10 }}>
           What Our Users Say
@@ -35,9 +35,9 @@ const Testimonials = () => {
             <Grid item xs={12} md={4} key={item.name}>
                 <Card sx={{
                     p: 4,
-                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.6)',
                     backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    border: '1px solid rgba(0, 0, 0, 0.05)',
                     borderRadius: '16px',
                     height: '100%',
                     display: 'flex',
@@ -51,7 +51,7 @@ const Testimonials = () => {
                         </Typography>
                     </Box>
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                        <Avatar sx={{ bgcolor: 'primary.main', mr: 2 }}>{item.avatar}</Avatar>
+                        <Avatar sx={{ bgcolor: 'primary.main', mr: 2, color: 'white' }}>{item.avatar}</Avatar>
                         <Box>
                             <Typography variant="h6" component="p" sx={{ fontWeight: 'bold' }}>
                                 {item.name}

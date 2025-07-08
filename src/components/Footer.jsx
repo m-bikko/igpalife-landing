@@ -7,9 +7,10 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 const Footer = () => {
   return (
     <Box component="footer" sx={{
-        borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+        borderTop: (theme) => `1px solid ${theme.palette.divider}`,
         py: 6,
-        mt: 12
+        mt: 12,
+        backgroundColor: 'background.paper'
     }}>
       <Container maxWidth="lg">
         <Grid container spacing={5}>

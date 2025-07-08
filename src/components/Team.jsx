@@ -42,13 +42,13 @@ const Team = () => {
               <Card sx={{
                 textAlign: 'center',
                 p: 3,
-                backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                backgroundColor: 'rgba(255, 255, 255, 0.6)',
                 backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
+                border: '1px solid rgba(0, 0, 0, 0.05)',
                 borderRadius: '16px',
                 height: '100%',
               }}>
-                <Avatar sx={{ width: 80, height: 80, margin: '0 auto 16px', bgcolor: 'secondary.main', fontSize: '2rem' }}>
+                <Avatar sx={{ width: 80, height: 80, margin: '0 auto 16px', bgcolor: 'secondary.main', fontSize: '2rem', color: 'white' }}>
                   {member.avatar}
                 </Avatar>
                 <CardContent>

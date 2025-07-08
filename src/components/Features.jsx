@@ -35,9 +35,9 @@ const Features = () => {
               <Card sx={{
                 textAlign: 'center',
                 p: 4,
-                backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                backgroundColor: 'rgba(255, 255, 255, 0.6)',
                 backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
+                border: '1px solid rgba(0, 0, 0, 0.05)',
                 borderRadius: '16px',
                 transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                 '&:hover': {

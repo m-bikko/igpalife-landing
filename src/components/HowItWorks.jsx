@@ -32,13 +32,13 @@ const HowItWorks = () => {
               <Box sx={{
                 textAlign: 'center',
                 p: 4,
-                backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                backgroundColor: 'rgba(255, 255, 255, 0.6)',
                 backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
+                border: '1px solid rgba(0, 0, 0, 0.05)',
                 borderRadius: '16px',
                 height: '100%',
               }}>
-                <Avatar sx={{ bgcolor: 'primary.main', width: 56, height: 56, margin: '0 auto 16px', color: 'background.default', fontWeight: 'bold' }}>
+                <Avatar sx={{ bgcolor: 'primary.main', width: 56, height: 56, margin: '0 auto 16px', color: 'white', fontWeight: 'bold' }}>
                   {item.step}
                 </Avatar>
                 <Typography variant="h6" component="h3" gutterBottom sx={{ fontWeight: 'bold' }}>

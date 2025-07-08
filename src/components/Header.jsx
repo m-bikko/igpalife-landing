@@ -20,8 +20,9 @@ const Header = () => {
       elevation={scrolled ? 4 : 0}
       sx={{
         backdropFilter: scrolled ? 'blur(10px)' : 'none',
-        backgroundColor: scrolled ? 'rgba(18, 18, 18, 0.8)' : 'transparent',
+        backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.8)' : 'transparent',
         transition: 'background-color 0.3s ease, box-shadow 0.3s ease',
+        color: 'text.primary'
       }}
     >
       <Toolbar>
